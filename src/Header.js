@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 /*
 
@@ -6,14 +6,8 @@ Streamline variable/key names!!!
 
 */
 
-class CvHeader extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return <div className="cvh cv-sec">hello world</div>;
-    }
+function Header() {
+    return <header>hello world</header>;
 }
 
-export default CvHeader;
+export default Header;
