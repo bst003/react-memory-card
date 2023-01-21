@@ -16,10 +16,9 @@ root.render(
 /*
 Thoughts
   - Should Body State hold "clicked" state for individual cards? 
-  - Try to use createContext to pass down updateScore function? https://reactjs.org/docs/context.html
+  - Will use pokeAPI
 
 Structure
-
   - App.js
     * Functionality
       * Update score method
@@ -33,6 +32,8 @@ Structure
     - Body.js (component)
       * Functionality
         * Performs API Call
+          * on useEffect(() => {}, []); (componentDidMount) perform fetch of data from API
+          * format: "https://pokeapi.co/api/v2/pokemon/?limit=12&offset=20" 
         * Array to hold cards
         * Method to shuffle cards
       - Instructions (html element)
