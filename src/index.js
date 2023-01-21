@@ -14,22 +14,29 @@ root.render(
 );
 
 /*
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+Thoughts
+  - Should Body State hold "clicked" state for individual cards? 
+  - Try to use createContext to pass down updateScore function? https://reactjs.org/docs/context.html
 
 Structure
 
   - App.js
-    - Header (component)
-      - Title (title element)
-      - Scoreboard (component)
-    - Body
-
-
+    * Functionality
+      * Update score method
+      * Method to check if score is higher than high score
+      * State
+        * Score
+        * High Score
+    - Header.js (component)
+      - Title (html element)
+      - Scoreboard.js (component)
+    - Body.js (component)
+      * Functionality
+        * Performs API Call
+        * Array to hold cards
+        * Method to shuffle cards
+      - Instructions (html element)
+      - Card.js (component)
 
 */
 
