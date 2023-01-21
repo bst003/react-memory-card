@@ -1,6 +1,3 @@
-import logo from "./logo.svg";
-import "./App.css";
-
 import React, { useState, useContext } from "react";
 
 import Header from "./components/Header";
