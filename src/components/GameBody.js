@@ -2,37 +2,65 @@ import React, { useState, useEffect } from "react";
 
 /*
 
-How to set up fetches for individual pokemon data?
-    - Does this have to be set up on the top level (GameBody)
-      or can it be set up on lower level?
-    - Consider how re-rendering will occur. Can't perform fetch each re-render
-    - Pass pokemon ID to sub compoent and only run fetch if ID changes
+THINGS TO DO
+    - Learn more about async functions
+    - Randomize array before adding to state
 
 */
 
 function GameBody(props) {
     const [pokeArr, setPokeArr] = useState([]);
 
+    const formatPokemonData = (data) => {
+        const formattedData = {
+            name: data.name,
+            sprite: data.sprites.front_default,
+        };
+
+        console.log(formattedData);
+
+        return formattedData;
+    };
+
     const getPokemonData = async (id) => {
         try {
-            // const response = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=12");
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
 
-            const pokemonData = await response.json();
+            const unformattedPokemonData = await response.json();
 
-            console.log(pokemonData);
+            const formattedPokemonData = formatPokemonData(unformattedPokemonData);
 
-            return pokemonData;
+            return formattedPokemonData;
         } catch (err) {
             console.log("Error fetching pokemone");
             console.log(err);
         }
     };
 
-    useEffect(() => {
+    const createInitialPokeArr = async () => {
+        const initialPokeArr = [];
+
         for (let i = 0; i <= 11; i++) {
-            getPokemonData(i + 1);
+            const pokemonData = await Promise.resolve(getPokemonData(i + 1));
+
+            initialPokeArr.push(pokemonData);
+
+            console.log(pokemonData);
         }
+
+        console.log(initialPokeArr);
+
+        return initialPokeArr;
+    };
+
+    const fillPokeArrState = async () => {
+        const initialPokeArr = await createInitialPokeArr();
+
+        setPokeArr(initialPokeArr);
+    };
+
+    useEffect(() => {
+        fillPokeArrState();
     }, []);
 
     return (
