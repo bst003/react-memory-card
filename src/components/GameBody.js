@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 /*
 
@@ -11,22 +11,28 @@ How to set up fetches for individual pokemon data?
 */
 
 function GameBody(props) {
-    const getPokemon = async () => {
+    const [pokeArr, setPokeArr] = useState([]);
+
+    const getPokemonData = async (id) => {
         try {
             // const response = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=12");
-            const response = await fetch("https://pokeapi.co/api/v2/pokemon/1");
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
 
             const pokemonData = await response.json();
 
             console.log(pokemonData);
+
+            return pokemonData;
         } catch (err) {
-            console.log("this is an error");
+            console.log("Error fetching pokemone");
             console.log(err);
         }
     };
 
     useEffect(() => {
-        getPokemon();
+        for (let i = 0; i <= 11; i++) {
+            getPokemonData(i + 1);
+        }
     }, []);
 
     return (
