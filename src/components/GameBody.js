@@ -13,6 +13,7 @@ function GameBody(props) {
 
     const formatPokemonData = (data) => {
         const formattedData = {
+            id: data.id,
             name: data.name,
             sprite: data.sprites.front_default,
         };
