@@ -18,49 +18,61 @@ function GameBody(props) {
             sprite: data.sprites.front_default,
         };
 
-        console.log(formattedData);
+        // console.log(formattedData);
 
         return formattedData;
     };
 
-    const getPokemonData = async (id) => {
-        try {
-            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const shuffle = (array) => {
+        array.sort((a, b) => {
+            return Number(Math.random() - 0.5);
+        });
 
-            const unformattedPokemonData = await response.json();
-
-            const formattedPokemonData = formatPokemonData(unformattedPokemonData);
-
-            return formattedPokemonData;
-        } catch (err) {
-            console.log("Error fetching pokemone");
-            console.log(err);
-        }
-    };
-
-    const createInitialPokeArr = async () => {
-        const initialPokeArr = [];
-
-        for (let i = 0; i <= 11; i++) {
-            const pokemonData = await Promise.resolve(getPokemonData(i + 1));
-
-            initialPokeArr.push(pokemonData);
-
-            console.log(pokemonData);
-        }
-
-        console.log(initialPokeArr);
-
-        return initialPokeArr;
-    };
-
-    const fillPokeArrState = async () => {
-        const initialPokeArr = await createInitialPokeArr();
-
-        setPokeArr(initialPokeArr);
+        return array;
     };
 
     useEffect(() => {
+        const getPokemonData = async (id) => {
+            try {
+                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+
+                const unformattedPokemonData = await response.json();
+
+                const formattedPokemonData = formatPokemonData(unformattedPokemonData);
+
+                return formattedPokemonData;
+            } catch (err) {
+                console.log("Error fetching pokemone");
+                console.log(err);
+            }
+        };
+
+        const createInitialPokeArr = async () => {
+            let initialPokeArr = [];
+
+            for (let i = 0; i <= 11; i++) {
+                const pokemonData = await Promise.resolve(getPokemonData(i + 1));
+
+                initialPokeArr.push(pokemonData);
+
+                console.log(pokemonData);
+            }
+
+            console.log(initialPokeArr);
+
+            initialPokeArr = shuffle(initialPokeArr);
+
+            console.log(initialPokeArr);
+
+            return initialPokeArr;
+        };
+
+        const fillPokeArrState = async () => {
+            const initialPokeArr = await createInitialPokeArr();
+
+            setPokeArr(initialPokeArr);
+        };
+
         fillPokeArrState();
     }, []);
 
