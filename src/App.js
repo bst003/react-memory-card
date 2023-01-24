@@ -11,7 +11,11 @@ function App() {
     return (
         <div className="App">
             <Header score={score} highScore={highScore} />
-            <Gamebody />
+            <main className="main-content">
+                <div className="main-content__inner">
+                    <Gamebody />
+                </div>
+            </main>
         </div>
     );
 }

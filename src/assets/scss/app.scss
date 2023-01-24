@@ -1,3 +1,24 @@
+// Variables
+////////////////////////////////////////////////
+
+$primaryFont: 'Heebo', sans-serif;;
+$secondaryFont: 'Pokemon Fire Red', sans-serif;
+
+$brandRed: #ee1515;
+$brandWhite: #FEFEFE;
+
+
+// Site Base
+////////////////////////////////////////////////
+
 body{
-    background-color: gray;
+    font-family: $primaryFont;
+    background-color: $brandWhite;
+}
+
+// Header
+////////////////////////////////////////////////
+
+.site-header{
+    background-color: $brandRed;
 }

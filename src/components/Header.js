@@ -6,9 +6,11 @@ function Header(props) {
     const { score, highScore } = props;
 
     return (
-        <header>
-            <h1>Pokemon Memory Game</h1>
-            <Scoreboard score={score} highScore={highScore} />
+        <header className="site-header">
+            <div className="site-header__inner">
+                <h1>Pokemon Memory Game</h1>
+                <Scoreboard score={score} highScore={highScore} />
+            </div>
         </header>
     );
 }
