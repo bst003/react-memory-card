@@ -6,19 +6,89 @@ $secondaryFont: 'Pokemon Fire Red', sans-serif;
 
 $brandRed: #ee1515;
 $brandWhite: #FEFEFE;
+$brandBlack: #111;
+
+$contentWidth: 1140px;
+$contentSidePadding: 20px;
 
 
 // Site Base
 ////////////////////////////////////////////////
 
 body{
+    color: $brandBlack;
     font-family: $primaryFont;
     background-color: $brandWhite;
+    line-height: 1.4;
+}
+
+.wrap{
+    margin: 0 auto;
+    max-width: $contentWidth;
+    width: 100%;
+}
+
+h1{
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+p{
+    margin: 0px 0px 20px;
+    font-size: 18px;
 }
 
 // Header
 ////////////////////////////////////////////////
 
 .site-header{
+    padding: 10px $contentSidePadding;
     background-color: $brandRed;
+    color: $brandWhite;
+
+    &__inner{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    h1{
+        margin: 0px;
+    }
+
+}
+
+// Scoreboard
+////////////////////////////////////////////////
+
+.scoreboard{
+    color: $brandWhite;
+
+    p{
+        margin: 0px 0px 5px;
+        font-size: 20px;
+        font-weight: 600;
+
+        &:last-of-type{
+            margin: 0px;
+        }
+
+    }
+
+}
+
+// Main Content
+////////////////////////////////////////////////
+
+.main-content{
+    padding: 0px $contentSidePadding;
+}
+
+// GameBody
+////////////////////////////////////////////////
+
+.gameBody{
+    padding: 70px 0px;
 }

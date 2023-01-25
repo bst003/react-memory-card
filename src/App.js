@@ -12,7 +12,7 @@ function App() {
         <div className="App">
             <Header score={score} highScore={highScore} />
             <main className="main-content">
-                <div className="main-content__inner">
+                <div className="main-content__inner wrap">
                     <Gamebody />
                 </div>
             </main>
