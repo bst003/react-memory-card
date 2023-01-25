@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import GameCard from "./GameCard";
+
 /*
 
 THINGS TO DO
@@ -78,10 +80,19 @@ function GameBody(props) {
 
     return (
         <section className="gameBody">
+            <h2>How to play</h2>
             <p>
                 Click the cards below to earn points, if you click the same card twice your score is
                 reset to zero.
             </p>
+
+            <div className="gameCards-grid">
+                {pokeArr.map((pokemon) => {
+                    return (
+                        <GameCard name={pokemon.name} sprite={pokemon.sprite} key={pokemon.id} />
+                    );
+                })}
+            </div>
         </section>
     );
 }
