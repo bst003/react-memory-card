@@ -4,9 +4,13 @@
 $primaryFont: 'Heebo', sans-serif;;
 $secondaryFont: 'Pokemon Fire Red', sans-serif;
 
-$brandRed: #ee1515;
+// $brandRed: #ee1515;
 $brandWhite: #FEFEFE;
 $brandBlack: #111;
+// $brandBlue: #255C99;
+$brandLightGreen: #73AB84;
+$brandDarkGreen: #4D805C;
+$brandGold: #D1AC00;
 
 $contentWidth: 1140px;
 $contentSidePadding: 20px;
@@ -18,8 +22,9 @@ $contentSidePadding: 20px;
 body{
     color: $brandBlack;
     font-family: $primaryFont;
-    background-color: $brandWhite;
+    background-color: $brandLightGreen;
     line-height: 1.4;
+    height: 100%;
 }
 
 .wrap{
@@ -51,7 +56,7 @@ p{
 
 .site-header{
     padding: 10px $contentSidePadding;
-    background-color: $brandRed;
+    background-color: $brandDarkGreen;
     color: $brandWhite;
 
     &__inner{
@@ -108,6 +113,16 @@ p{
 
 .gameCard{
     position: relative;
+    background-color: $brandWhite;
+    border: 3px solid $brandGold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform .3s ease-in-out;
+
+    &:hover,
+    &:focus{
+        transform: translateY(-6px);
+    }
 
     &::before{
         content: "";
@@ -116,7 +131,7 @@ p{
         left: 0;
         right: 0;
         bottom: 0;
-        opacity: .1;
+        opacity: .06;
         background-image: url('/assets/img/pokeball.png');
         background-position: center;
         background-size: contain;
@@ -125,6 +140,10 @@ p{
     &__inner{
         position: relative;
         z-index: 2;
+    }
+
+    p{
+        text-transform: uppercase;
     }
 
 }
