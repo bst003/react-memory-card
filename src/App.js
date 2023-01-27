@@ -23,8 +23,6 @@ function App() {
 
     useEffect(() => {
         const checkHighScore = () => {
-            console.log(`score: ${score}`);
-            console.log(`high score: ${highScore}`);
             if (score > highScore) {
                 setHighScore(score);
             }
