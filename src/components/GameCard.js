@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 /*
 
 How to undo clicked on game over?
+    Pass uniqid (gameID) and reset clicked if changed?
+        updateGameID method name?
 
 
 */
