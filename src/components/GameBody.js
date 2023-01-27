@@ -33,6 +33,15 @@ function GameBody(props) {
         return array;
     };
 
+    const triggerCard = () => {
+        console.log("card has been triggered");
+
+        const newPokeArr = shuffle(pokeArr);
+        console.log(newPokeArr);
+
+        setPokeArr([...newPokeArr]);
+    };
+
     useEffect(() => {
         const getPokemonData = async (id) => {
             try {
@@ -89,7 +98,12 @@ function GameBody(props) {
             <div className="gameCards-grid">
                 {pokeArr.map((pokemon) => {
                     return (
-                        <GameCard name={pokemon.name} sprite={pokemon.sprite} key={pokemon.id} />
+                        <GameCard
+                            name={pokemon.name}
+                            sprite={pokemon.sprite}
+                            key={pokemon.id}
+                            trigger={triggerCard}
+                        />
                     );
                 })}
             </div>

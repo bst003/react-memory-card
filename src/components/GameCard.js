@@ -8,11 +8,13 @@ How to undo clicked on game over?
 */
 
 function GameCard(props) {
-    const { name, sprite } = props;
+    const { name, sprite, trigger } = props;
 
     const [clicked, setClicked] = useState(0);
 
     const triggerButton = () => {
+        trigger();
+
         if (!clicked) {
             console.log("the button is clicked");
             setClicked(1);
