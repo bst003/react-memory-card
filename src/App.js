@@ -36,6 +36,7 @@ function App() {
         setScore(score + 1);
     };
 
+    // Check if highSchore needs to be updated after score is updated
     useEffect(() => {
         const checkHighScore = () => {
             if (score > highScore) {
