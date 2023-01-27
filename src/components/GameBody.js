@@ -11,6 +11,8 @@ THINGS TO DO
 */
 
 function GameBody(props) {
+    const { updateScore } = props;
+
     const [pokeArr, setPokeArr] = useState([]);
 
     const formatPokemonData = (data) => {
@@ -33,13 +35,20 @@ function GameBody(props) {
         return array;
     };
 
-    const triggerCard = () => {
+    const triggerCard = (reset) => {
         console.log("card has been triggered");
 
         const newPokeArr = shuffle(pokeArr);
-        console.log(newPokeArr);
-
         setPokeArr([...newPokeArr]);
+
+        updateScore(reset);
+
+        // if (reset) {
+        //     console.log("reset score");
+        //     return;
+        // }
+
+        // console.log("add score");
     };
 
     useEffect(() => {

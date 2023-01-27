@@ -13,14 +13,14 @@ function GameCard(props) {
     const [clicked, setClicked] = useState(0);
 
     const triggerButton = () => {
-        trigger();
-
         if (!clicked) {
             console.log("the button is clicked");
             setClicked(1);
+            trigger(false);
             return;
         }
 
+        trigger(true);
         console.log("game over");
     };
 
