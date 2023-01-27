@@ -2,14 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import GameCard from "./GameCard";
 
-/*
-
-THINGS TO DO
-    - Learn more about async functions
-    - Randomize array before adding to state
-
-*/
-
 function GameBody(props) {
     const { gameId, updateScore } = props;
 
@@ -21,8 +13,6 @@ function GameBody(props) {
             name: data.name,
             sprite: data.sprites.front_default,
         };
-
-        // console.log(formattedData);
 
         return formattedData;
     };
@@ -36,19 +26,10 @@ function GameBody(props) {
     };
 
     const triggerCard = (reset) => {
-        console.log("card has been triggered");
-
         const newPokeArr = shuffle(pokeArr);
         setPokeArr([...newPokeArr]);
 
         updateScore(reset);
-
-        // if (reset) {
-        //     console.log("reset score");
-        //     return;
-        // }
-
-        // console.log("add score");
     };
 
     useEffect(() => {
@@ -62,8 +43,8 @@ function GameBody(props) {
 
                 return formattedPokemonData;
             } catch (err) {
-                console.log("Error fetching pokemone");
-                console.log(err);
+                console.log("Error fetching pokemon");
+                console.error(err);
             }
         };
 
@@ -74,15 +55,9 @@ function GameBody(props) {
                 const pokemonData = await Promise.resolve(getPokemonData(i + 1));
 
                 initialPokeArr.push(pokemonData);
-
-                console.log(pokemonData);
             }
 
-            console.log(initialPokeArr);
-
             initialPokeArr = shuffle(initialPokeArr);
-
-            console.log(initialPokeArr);
 
             return initialPokeArr;
         };
