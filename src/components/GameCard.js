@@ -7,14 +7,12 @@ function GameCard(props) {
 
     const triggerButton = () => {
         if (!clicked) {
-            console.log("the button is clicked");
             setClicked(1);
             trigger(false);
             return;
         }
 
         trigger(true);
-        console.log("game over");
     };
 
     const buttonRef = useRef(null);
