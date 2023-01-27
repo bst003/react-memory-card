@@ -1,14 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 
-/*
-
-How to undo clicked on game over?
-    Pass uniqid (gameID) and reset clicked if changed?
-        updateGameID method name?
-
-
-*/
-
 function GameCard(props) {
     const { name, sprite, gameId, trigger } = props;
 
@@ -47,7 +38,7 @@ function GameCard(props) {
             <div className="gameCard__inner">
                 <img src={sprite} alt="Sprite of {name}" />
                 <p>{name}</p>
-                {clicked ? "clicked" : ""}
+                {/* {clicked ? "clicked" : ""} */}
             </div>
         </button>
     );
