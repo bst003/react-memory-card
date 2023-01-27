@@ -8,15 +8,13 @@ function App() {
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
 
-    const updateScore = async (reset) => {
+    const updateScore = (reset) => {
         if (reset) {
             setScore(0);
             return;
         }
 
-        await setScore(score + 1);
-
-        console.log(score);
+        setScore(score + 1);
     };
 
     useEffect(() => {
