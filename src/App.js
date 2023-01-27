@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./assets/scss/app.scss";
 
 import Header from "./components/Header";
@@ -8,15 +8,28 @@ function App() {
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
 
-    const updateScore = (reset) => {
+    const updateScore = async (reset) => {
         if (reset) {
             setScore(0);
             return;
         }
 
-        setScore(score + 1);
+        await setScore(score + 1);
+
         console.log(score);
     };
+
+    useEffect(() => {
+        const checkHighScore = () => {
+            console.log(`score: ${score}`);
+            console.log(`high score: ${highScore}`);
+            if (score > highScore) {
+                setHighScore(score);
+            }
+        };
+
+        checkHighScore();
+    }, [score, highScore]);
 
     return (
         <div className="App">
