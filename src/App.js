@@ -6,6 +6,21 @@ import uniqid from "uniqid";
 import Header from "./components/Header";
 import Gamebody from "./components/GameBody";
 
+/*
+Modal Notes
+    - Use https://www.npmjs.com/package/react-modal?
+    - Two Separate Modal?
+        - Game Over
+        - You Win
+    - OR one modal with dynamic content?
+        - based on gameOver prop?
+            - If gameOver prop is set as true then have content show game over message
+            - Else show you win message
+        - Always show score at bottom of the modal
+
+
+*/
+
 function App() {
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
