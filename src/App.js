@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./assets/scss/app.scss";
 
+import uniqid from "uniqid";
+
 import Header from "./components/Header";
 import Gamebody from "./components/GameBody";
 
 function App() {
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
+    const [gameId, setGameId] = useState(uniqid());
 
     const updateScore = (reset) => {
         if (reset) {
             setScore(0);
+            setGameId(uniqid());
             return;
         }
 
@@ -34,7 +38,7 @@ function App() {
             <Header score={score} highScore={highScore} />
             <main className="main-content">
                 <div className="main-content__inner wrap">
-                    <Gamebody updateScore={updateScore} />
+                    <Gamebody gameId={gameId} updateScore={updateScore} />
                 </div>
             </main>
         </div>

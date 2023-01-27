@@ -10,7 +10,7 @@ How to undo clicked on game over?
 */
 
 function GameCard(props) {
-    const { name, sprite, trigger } = props;
+    const { name, sprite, gameId, trigger } = props;
 
     const [clicked, setClicked] = useState(0);
 
@@ -37,6 +37,10 @@ function GameCard(props) {
             buttonElement.removeEventListener("click", triggerButton);
         };
     });
+
+    useEffect(() => {
+        setClicked(false);
+    }, [gameId]);
 
     return (
         <button className="gameCard" type="button" ref={buttonRef}>

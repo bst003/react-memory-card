@@ -11,7 +11,7 @@ THINGS TO DO
 */
 
 function GameBody(props) {
-    const { updateScore } = props;
+    const { gameId, updateScore } = props;
 
     const [pokeArr, setPokeArr] = useState([]);
 
@@ -111,6 +111,7 @@ function GameBody(props) {
                             name={pokemon.name}
                             sprite={pokemon.sprite}
                             key={pokemon.id}
+                            gameId={gameId}
                             trigger={triggerCard}
                         />
                     );
