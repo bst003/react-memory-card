@@ -28,16 +28,8 @@ function App() {
     const [gameId, setGameId] = useState(uniqid());
     const [modalOpen, setModalOpen] = useState(false);
 
-    const resetGame = () => {
-        setScore(0);
-        setGameId(uniqid());
-    };
-
     const updateScore = (reset) => {
         if (reset) {
-            // setScore(0);
-            // setGameId(uniqid());
-            // resetGame();
             setModalOpen(true);
             return;
         }
@@ -53,8 +45,6 @@ function App() {
             }
         };
 
-        console.log("score has been updated");
-
         const checkForWin = () => {
             if (score === 12) {
                 setModalOpen(true);
@@ -64,6 +54,11 @@ function App() {
         checkHighScore();
         checkForWin();
     }, [score]);
+
+    const resetGame = () => {
+        setScore(0);
+        setGameId(uniqid());
+    };
 
     const closeAlertModal = () => {
         resetGame();
@@ -78,7 +73,12 @@ function App() {
                     <Gamebody gameId={gameId} updateScore={updateScore} />
                 </div>
             </main>
-            <GameModal score={score} modalIsOpen={modalOpen} closeAlertModal={closeAlertModal} />
+            <GameModal
+                score={score}
+                modalIsOpen={modalOpen}
+                closeAlertModal={closeAlertModal}
+                closeTimeoutMS={200}
+            />
         </div>
     );
 }

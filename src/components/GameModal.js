@@ -44,7 +44,8 @@ function GameModal(props) {
             contentLabel="Game Alert Modal"
         >
             <button className="gameModal__close" type="button" onClick={closeModal}>
-                close
+                <span className="screen-reader-text">close</span>
+                <i class="fas fa-times"></i>
             </button>
             {modalContent()}
         </Modal>

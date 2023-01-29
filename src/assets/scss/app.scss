@@ -31,6 +31,20 @@ body{
     width: 100%;
 }
 
+.screen-reader-text{
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
 h1{
     font-size: 34px;
     font-weight: 700;
@@ -40,6 +54,13 @@ h1{
 h2{
     margin: 0px 0px 16px;
     font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h3{
+    margin: 0px 0px 16px;
+    font-size: 28px;
     font-weight: 700;
     line-height: 1.2;
 }
@@ -57,6 +78,10 @@ p{
 
     h2{
         font-size: 26px;
+    }
+
+    h3{
+        font-size: 24px;
     }
 
     p{
@@ -121,6 +146,8 @@ p{
 ////////////////////////////////////////////////
 
 .main-content{
+    position: relative;
+    z-index: 1;
     padding: 0px $contentSidePadding;
 }
 
@@ -202,6 +229,46 @@ p{
     .gameCards-grid{
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
+    }
+
+}
+
+// Modal
+////////////////////////////////////////////////
+
+.ReactModal__Overlay {
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+    background-color: rgba(0,0,0,.7)!important;
+    padding: 20px;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
+}
+
+.gameModal{
+    opacity: 0;
+    transform: translateY(-150px);
+    transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+    background-color: $brandWhite;
+    border: 3px solid $brandGold;
+    border-radius: 20px;
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+
+    .ReactModal__Overlay--after-open &{
+        transform: translateY(0px);
+        opacity: 1;
     }
 
 }
