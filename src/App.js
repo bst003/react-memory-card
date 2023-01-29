@@ -24,12 +24,14 @@ Modal Notes
 
 function App() {
     const [score, setScore] = useState(0);
+    const [prevScore, setPrevScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
     const [gameId, setGameId] = useState(uniqid());
     const [modalOpen, setModalOpen] = useState(false);
 
     const updateScore = (reset) => {
         if (reset) {
+            setPrevScore(score);
             setScore(0);
             setGameId(uniqid());
             setModalOpen(true);
@@ -63,7 +65,7 @@ function App() {
                 </div>
             </main>
             <GameModal
-                score={score}
+                prevScore={prevScore}
                 highScore={highScore}
                 modalIsOpen={modalOpen}
                 closeAlertModal={closeAlertModal}
