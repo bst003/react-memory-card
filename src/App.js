@@ -5,6 +5,7 @@ import uniqid from "uniqid";
 
 import Header from "./components/Header";
 import Gamebody from "./components/GameBody";
+import GameModal from "./components/GameModal";
 
 /*
 Modal Notes
@@ -25,18 +26,20 @@ function App() {
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
     const [gameId, setGameId] = useState(uniqid());
+    const [modalOpen, setModalOpen] = useState(false);
 
     const updateScore = (reset) => {
         if (reset) {
             setScore(0);
             setGameId(uniqid());
+            setModalOpen(true);
             return;
         }
 
         setScore(score + 1);
     };
 
-    // Check if highSchore needs to be updated after score is updated
+    // Check if highScore needs to be updated after score is updated
     useEffect(() => {
         const checkHighScore = () => {
             if (score > highScore) {
@@ -47,6 +50,10 @@ function App() {
         checkHighScore();
     }, [score, highScore]);
 
+    const closeAlertModal = () => {
+        setModalOpen(false);
+    };
+
     return (
         <div className="App">
             <Header score={score} highScore={highScore} />
@@ -55,6 +62,12 @@ function App() {
                     <Gamebody gameId={gameId} updateScore={updateScore} />
                 </div>
             </main>
+            <GameModal
+                score={score}
+                highScore={highScore}
+                modalIsOpen={modalOpen}
+                closeAlertModal={closeAlertModal}
+            />
         </div>
     );
 }
