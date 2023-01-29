@@ -1,5 +1,3 @@
-import React, { useEffect, useRef } from "react";
-
 import Modal from "react-modal";
 
 function GameModal(props) {
@@ -39,14 +37,12 @@ function GameModal(props) {
             closeTimeoutMS={200}
             className="gameModal"
             isOpen={modalIsOpen}
-            // onAfterOpen={afterOpenModal}
             onRequestClose={closeModal}
-            // style={customStyles}
             contentLabel="Game Alert Modal"
         >
             <button className="gameModal__close" type="button" onClick={closeModal}>
                 <span className="screen-reader-text">close</span>
-                <i class="fas fa-times"></i>
+                <i className="fas fa-times"></i>
             </button>
             {modalContent()}
         </Modal>
