@@ -73,12 +73,7 @@ function App() {
                     <Gamebody gameId={gameId} updateScore={updateScore} />
                 </div>
             </main>
-            <GameModal
-                score={score}
-                modalIsOpen={modalOpen}
-                closeAlertModal={closeAlertModal}
-                closeTimeoutMS={200}
-            />
+            <GameModal score={score} modalIsOpen={modalOpen} closeAlertModal={closeAlertModal} />
         </div>
     );
 }

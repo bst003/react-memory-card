@@ -36,6 +36,7 @@ function GameModal(props) {
 
     return (
         <Modal
+            closeTimeoutMS={200}
             className="gameModal"
             isOpen={modalIsOpen}
             // onAfterOpen={afterOpenModal}
