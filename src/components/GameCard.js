@@ -36,7 +36,7 @@ function GameCard(props) {
             <div className="gameCard__inner">
                 <img src={sprite} alt="Sprite of {name}" />
                 <p>{name}</p>
-                {clicked ? "clicked" : ""}
+                {/* {clicked ? "clicked" : ""} */}
             </div>
         </button>
     );
