@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import Modal from "react-modal";
 
 function GameModal(props) {
-    const { prevScore, modalIsOpen, closeAlertModal } = props;
+    const { score, modalIsOpen, closeAlertModal } = props;
 
     Modal.setAppElement("#root");
 
@@ -15,7 +15,7 @@ function GameModal(props) {
     const modalContent = () => {
         let content = "";
 
-        if (Number(prevScore) === Number(12)) {
+        if (Number(score) === Number(12)) {
             content = (
                 <div className="gameModal__inner">
                     <h3>You win!</h3>
@@ -26,7 +26,7 @@ function GameModal(props) {
             content = (
                 <div className="gameModal__inner">
                     <h3>Game Over</h3>
-                    <p>Your score was {prevScore} / 12</p>
+                    <p>Your score was {score} / 12</p>
                 </div>
             );
         }
