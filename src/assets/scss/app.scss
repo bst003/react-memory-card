@@ -258,7 +258,8 @@ p{
 .gameModal{
     opacity: 0;
     transform: translateY(-150px);
-    transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+    transition: transform 200ms ease-in-out, 
+                opacity 200ms ease-in-out;
     background-color: $brandWhite;
     border: 3px solid $brandGold;
     border-radius: 20px;
@@ -269,6 +270,42 @@ p{
     .ReactModal__Overlay--after-open &{
         transform: translateY(0px);
         opacity: 1;
+    }
+
+    &__inner{
+        text-align: center; 
+
+        p{
+            margin: 0px;
+        }
+
+    }
+
+    &__close{
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        height: 45px;
+        width: 45px;
+        background-color: $brandWhite;
+        border: 3px solid $brandGold;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        font-size: 26px;
+        cursor: pointer;
+        transition: color 200ms ease-in-out,
+                    background-color 200ms ease-in-out;
+
+
+        &:hover,
+        &:focus{
+            color: $brandWhite;
+            background-color: $brandGold;
+        }
+        
     }
 
 }
