@@ -8,7 +8,7 @@ function Header(props) {
     return (
         <header className="site-header">
             <div className="site-header__inner wrap">
-                <h1>Pokemon Memory Game</h1>
+                <h1>Pokémon Memory Game</h1>
                 <Scoreboard score={score} highScore={highScore} />
             </div>
         </header>
