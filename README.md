@@ -3,7 +3,7 @@
 Pokémon themed memory card game created with React using <code>create-react-app</code>.
 The data for this app is pulled in from the <a href="https://pokeapi.co/">PokéAPI</a>.
 
-View the live project <a href="">here</a>.
+View the live project <a href="https://bst003.github.io/react-memory-card/">here</a>.
 
 ## How To Play
 
